@@ -65,10 +65,10 @@ select,
     background-color: #fff;
     border: 1px solid #ccc;
 }
-input,
+/* input,
 select{
     height: 42px;
-}
+} */
 textarea{
     resize: vertical;
     min-height: 100px;
@@ -108,7 +108,6 @@ textarea{
 input[type="submit" i] {
     display: inline-block;
     width: 330px;
-    height: 41px;
     font: 700 14px "Roboto";
     text-align: center;
     line-height: 24px;
@@ -137,18 +136,18 @@ select:focus{
 }
 .two-column{
     display: inline-block;
-    margin: 10px 14px;
+    margin: 0;
     vertical-align: left;
-    width: 125px;
+    width: 117px;
     font-size: 14px;
     text-align: left;
     box-sizing: border-box;
 }
 .two-column2{
     display: inline-block;
-    margin: 10px 14px;
+    margin: 0;
     vertical-align: left;
-    width: 314px;
+    width: 303px;
     font-size: 14px;
     text-align: left;
     box-sizing: border-box;
@@ -161,15 +160,20 @@ select:focus{
     display: flex; 
     justify-content: space-between;
 }
-.radio, 
+.radio,
+.radio_noactiv,
+.checkbox_noactiv, 
 .checkbox, 
 .style-radio1, 
 .style-radio2{
     display: none;
 }
-.radio+label{
+.checkbox+label,
+.radio+label,
+.radio_noactiv+label,
+.checkbox_noactiv+label{
     position: relative;
-    padding-left: 32px;
+    padding-left: 22px;
 }
 .radio+label::before{
     content: "";
@@ -192,18 +196,11 @@ select:focus{
     border-radius: 50%;
     background-color: #3e6aff;
 }
-.no-activ{
-    color: #b3b3b3;
-}
-.checkbox+label{
-    position: relative;
-    padding-left: 52px;
-}
 .checkbox+label::before{
     content: "";
     position: absolute;
-    left: 32px;
-    top: 0;
+    left: -6px;
+    top: -2px;
     width: 13px;
     height: 13px;
     border-radius: 3px;
@@ -213,8 +210,8 @@ select:focus{
 .checkbox:checked+label::after{
     content: "";
     position: absolute;
-    left: 36px;
-    top: 0;
+    left: -2px;
+    top: -1px;
     width: 3px;
     height: 6px;
     border-radius: 4px;
@@ -227,24 +224,83 @@ select:focus{
 .radio:checked+label::before{
     border: 1px solid #3e6aff;
 }
+.no-activ{
+    color: #b3b3b3;
+}
+.radio_noactiv+label::before{
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 0;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    border-color: #b3b3b3;  
+}
+.checkbox_noactiv+label::before{
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 0;
+    width: 13px;
+    height: 13px;
+    background-color: #f7f7f7;
+    border-color: #e8e8e8;
+}
+.radio_noactiv+label,
+.checkbox_noactiv+label{
+    position: relative;
+}
+
 .status{
-   padding: 13px 20px;
-   width: 470px;
-   margin-top: 20px;
+   padding: 0;
+   width: 49%;
    background-color: #f7f7f7;
    border: 1px solid #e5e5e5;
    border-radius: 3px;
+   box-sizing: border-box;
    color: #1f222c;
    font: 400 14px "Roboto";
+}
+.status label{
+    padding: 10px 5px;
+}
+.flex .checkbox+label{
+    padding: 8px 4px;
+}
+.flex .checkbox+label::before{
+    content: "";
+    position: absolute;
+    left: -18px;
+    top: 8px;
+    width: 15px;
+    height: 13px;
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid #b3b3b3;
+}
+.flex .checkbox:checked+label::after{
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 8px;
+    width: 3px;
+    height: 6px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    border-bottom-color: #244dd7;
+    border-right-color: #244dd7;
+    transform: rotate(45deg);
 }
 .status table{
     width: 100%;
 }
 .status td{
-    padding: 7px 0;
+    padding: 10px;
 }
 .status td:first-child{
-    width: 80px;
+    width: 60px;
     color: #b3b3b3;
     font: 700 14px "Roboto";
 }
@@ -261,7 +317,7 @@ input[type="date" i]{
     display: inline-block;
 }
 .in-date{
-    margin-left: 30px;
+    margin-left: -25px;
 }
 .check{
     display: none;
@@ -293,7 +349,7 @@ input[type="date" i]{
     top: -23px;
     width: 71px;
     height: 71px;
-    border-radius: 35px;
+    border-radius: 50%;
     background-image: url(../img/man.png);
     background-color: #e8e8e8;
     background-repeat: no-repeat;
@@ -306,7 +362,7 @@ input[type="date" i]{
     top: -23px;
     width: 71px;
     height: 71px;
-    border-radius: 35px;
+    border-radius: 50%;
     background-image: url(../img/women.png);
     background-color:#e8e8e8;
     background-repeat: no-repeat;
@@ -319,7 +375,7 @@ input[type="date" i]{
     top: -23px;
     width: 71px;
     height: 71px;
-    border-radius: 35px;
+    border-radius: 50%;
     background-image: url(../img/man2.png);
     background-color:#e8e8e8;
     background-repeat: no-repeat;
@@ -333,7 +389,7 @@ input[type="date" i]{
     top: -23px;
     width: 71px;
     height: 71px;
-    border-radius: 35px;
+    border-radius: 50%;
     background-image: url(../img/women2.png);
     background-color:#e8e8e8;
     background-repeat: no-repeat;
@@ -440,8 +496,8 @@ form ul{
 .file+label{
     display: inline-block;
     width: 170px;
-    height: 30px;
-    padding: 15px 0 0 0;
+    /* height: 30px; */
+    padding: 15px;
     color: #fff;
     font: 700 14px "Roboto";
     text-align: center;
@@ -598,6 +654,7 @@ label{
     top: 50px;
     right: 10%;
     width: 309px;
+    z-index: 5;
 }
 .form-wrap form{
     background-color: #f7f7f7;
@@ -623,19 +680,18 @@ label{
 }
 #close+label{
     position: fixed;
-    right: 12px;
-    top: 110px;
+    right: 10%;
+    top: 125px;
     display: block;
     width: 20px;
     height: 20px;
-    background-color: #fff;
     z-index: 1;
 }
 #close+label::before{
     content: "+";
     position: absolute;
-    left: -121px;
-    top: 24px;
+    left: -10px;
+    top: 6px;
     color: #b3b3b3;
     font-size: 20px;
     font-weight: bold;
@@ -665,6 +721,9 @@ ul>li>a{
     color: #3e6aff;
     font: 400 13px "Roboto";
     text-decoration: none;
+}
+ul>li>a:hover{
+    text-decoration: underline;
 }
 form>ul>li> .submit-form{
     text-align: center;
